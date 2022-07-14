@@ -126,7 +126,9 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 		try {
 			DefaultListableBeanFactory beanFactory = createBeanFactory();
 			beanFactory.setSerializationId(getId());
+			//设置bean是否覆盖和循环依赖
 			customizeBeanFactory(beanFactory);
+			//加载beanDefinition，xml中bean定义
 			loadBeanDefinitions(beanFactory);
 			this.beanFactory = beanFactory;
 		}
